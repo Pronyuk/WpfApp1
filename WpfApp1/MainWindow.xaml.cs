@@ -17,6 +17,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.TestEntities;
 
 namespace WpfApp1
 {
@@ -29,17 +30,38 @@ namespace WpfApp1
         {
             InitializeComponent();
 
+            ShowDesktopWindows();
+
 
             ScreenConnectionMonitor.OnScreenConnectionChanged += () =>
             {
-                var aaa = NativeInfo.GetDisplaysInfo();
-                GetWMIDisplayInfo();
+                //Process[] processlist = Process.GetProcesses();
+
+                //foreach (Process process in processlist)
+                //{
+                //    //if (!String.IsNullOrEmpty(process.MainWindowTitle))
+                //    //{
+                //        Trace.WriteLine($"Process: {process.ProcessName} ID: {process.Id} Window title: {process.MainWindowTitle}");
+                //    //}
+                //}
             };
 
             ScreenConnectionMonitor.Start();
 
 
 
+        }
+
+        private void ShowDesktopWindows()
+        {
+            List<IntPtr> handles;
+            List<string> titles;
+            EnumWindows.GetDesktopWindowHandlesAndTitles(out handles, out titles);
+
+            titles.ForEach(v =>
+            {
+                Trace.WriteLine(v);
+            });
         }
 
         public void GetWMIDisplayInfo()
@@ -55,10 +77,10 @@ namespace WpfApp1
 
                     temp.Active = (bool)item["Active"];
                     temp.InstanceName = (string)item["InstanceName"];
-                    temp.ManufacturerName = (ushort[])item["ManufacturerName"];
-                    temp.ProductCodeID = (ushort[])item["ProductCodeID"];
-                    temp.SerialNumberID = (ushort[])item["SerialNumberID"];
-                    temp.UserFriendlyName = (ushort[])item["UserFriendlyName"];
+                    temp.ManufacturerName = ((ushort[])item["ManufacturerName"]).Where(v => v != 0).ToArray();
+                    temp.ProductCodeID = ((ushort[])item["ProductCodeID"]).Where(v => v != 0).ToArray();
+                    temp.SerialNumberID = ((ushort[])item["SerialNumberID"]).Where(v => v != 0).ToArray();
+                    temp.UserFriendlyName = ((ushort[])item["UserFriendlyName"]).Where(v => v != 0).ToArray();
                     temp.UserFriendlyNameLength = (int)(ushort)item["UserFriendlyNameLength"];
                     temp.WeekOfManufacture = (int)(byte)item["WeekOfManufacture"];
                     temp.YearOfManufacture = (int)(ushort)item["YearOfManufacture"];
@@ -92,21 +114,22 @@ namespace WpfApp1
 
         public override string ToString()
         {
-            var manuf = ManufacturerName.Select(v => Convert.ToByte(v)).ToArray();
-            var productC = ProductCodeID.Select(v => Convert.ToByte(v)).ToArray();
-            var serialNumberID = SerialNumberID.Select(v => Convert.ToByte(v)).ToArray();
-            var userFriendlyName = UserFriendlyName.Select(v => Convert.ToByte(v)).ToArray();
+            //return JsonSerializer.Serialize(this);
+            var manuf = ManufacturerName.Select(v => Convert.ToChar(v)).ToArray();
+            var productC = ProductCodeID.Select(v => Convert.ToChar(v)).ToArray();
+            var serialNumberID = SerialNumberID.Select(v => Convert.ToChar(v)).ToArray();
+            var userFriendlyName = UserFriendlyName.Select(v => Convert.ToChar(v)).ToArray();
             var sb = new StringBuilder();
             sb.AppendLine($"Active: {Active}");
             sb.AppendLine($"InstanceName: { InstanceName}");
-            sb.AppendLine($"ManufacturerName: {Encoding.Default.GetString(manuf)}");
-            sb.AppendLine($"SerialNumberID: { Encoding.Default.GetString(serialNumberID)}");
-            sb.AppendLine($"ProductCodeID: { Encoding.Default.GetString(productC)}");
-            sb.AppendLine($"UserFriendlyName: { Encoding.Default.GetString(userFriendlyName)}");
+            sb.AppendLine($"ManufacturerName: { new string(manuf) }");
+            sb.AppendLine($"SerialNumberID: { new string(productC)}");
+            sb.AppendLine($"ProductCodeID: { new string(userFriendlyName)}");
+            sb.AppendLine($"UserFriendlyName: { new string(userFriendlyName)}");
             sb.AppendLine($"UserFriendlyNameLength: { UserFriendlyNameLength}");
             sb.AppendLine($"WeekOfManufacture: { WeekOfManufacture}");
             sb.AppendLine($"YearOfManufacture: { YearOfManufacture}");
-            
+
             return sb.ToString();
         }
     }
