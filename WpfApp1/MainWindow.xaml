@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <TextBox x:Name="textBox_DisplaysInfo" HorizontalAlignment="Center" Margin="0,139,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="780" Height="285"/>
+        <Button x:Name="button_GetDisplaysInfo" Content="Get Displays Info" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Height="124" Width="790" Click="button_Click"/>
 
     </Grid>
 </Window>

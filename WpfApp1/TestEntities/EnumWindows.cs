@@ -46,8 +46,7 @@ namespace WpfApp1.TestEntities
             WindowHandles = new List<IntPtr>();
             WindowTitles = new List<string>();
 
-            if (!EnumDesktopWindows(IntPtr.Zero, FilterCallback,
-                IntPtr.Zero))
+            if (!EnumDesktopWindows(IntPtr.Zero, FilterCallback, IntPtr.Zero))
             {
                 handles = null;
                 titles = null;

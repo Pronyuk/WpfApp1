@@ -1,0 +1,12 @@
+{
+  "ServerUri": "http://localhost:9000",
+  "Organization": null,
+  "ProjectKey": "wpfApp1:check",
+  "ProjectName": "wpfApp1:check",
+  "Profiles": {
+    "CSharp": {
+      "ProfileKey": "AXTAbOKgsY5X7nIvkkwT",
+      "ProfileTimestamp": "2020-09-24T14:03:15Z"
+    }
+  }
+}

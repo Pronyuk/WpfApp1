@@ -1,0 +1,10 @@
+?
+6C:\Users\Nuke\Source\Repos\WpfApp1\WpfApp1\App.xaml.csutf-8C
+:C:\Users\Nuke\Source\Repos\WpfApp1\WpfApp1\AssemblyInfo.csutf-8F
+=C:\Users\Nuke\Source\Repos\WpfApp1\WpfApp1\MainWindow.xaml.csutf-8a
+XC:\Users\Nuke\Source\Repos\WpfApp1\WpfApp1\TestEntities\AcceleratorEnumeratingWindows.csutf-8O
+FC:\Users\Nuke\Source\Repos\WpfApp1\WpfApp1\TestEntities\EnumWindows.csutf-8]
+RC:\Users\Nuke\Source\Repos\WpfApp1\WpfApp1\obj\Debug\netcoreapp3.1\MainWindow.g.csutf-8V
+KC:\Users\Nuke\Source\Repos\WpfApp1\WpfApp1\obj\Debug\netcoreapp3.1\App.g.csutf-8Z
+OC:\Users\Nuke\AppData\Local\Temp\.NETCoreApp,Version=v3.1.AssemblyAttributes.csutf-8e
+ZC:\Users\Nuke\Source\Repos\WpfApp1\WpfApp1\obj\Debug\netcoreapp3.1\WpfApp1.AssemblyInfo.csutf-8

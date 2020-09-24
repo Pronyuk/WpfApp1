@@ -47,12 +47,9 @@ namespace WpfApp1
             };
 
             ScreenConnectionMonitor.Start();
-
-
-
         }
 
-        private void ShowDesktopWindows()
+        private List<string> ShowDesktopWindows()
         {
             List<IntPtr> handles;
             List<string> titles;
@@ -62,6 +59,8 @@ namespace WpfApp1
             {
                 Trace.WriteLine(v);
             });
+
+            return titles;
         }
 
         public void GetWMIDisplayInfo()
@@ -90,6 +89,11 @@ namespace WpfApp1
             }
         }
 
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            var text = ShowDesktopWindows();
+            this.textBox_DisplaysInfo.Text = text.Aggregate((i, j) => i + $"{Environment.NewLine}" + j);
+        }
     }
 
     public class WmiDisplayInformation
