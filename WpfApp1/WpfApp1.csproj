@@ -6,6 +6,7 @@
     <RuntimeFrameworkVersion>3.1</RuntimeFrameworkVersion>
     <UseWPF>true</UseWPF>
     <CodeAnalysisRuleSet>..\.sonarlint\wpfapp1_checkcsharp.ruleset</CodeAnalysisRuleSet>
+    <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
