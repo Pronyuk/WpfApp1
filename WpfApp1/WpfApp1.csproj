@@ -3,20 +3,12 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RuntimeFrameworkVersion>2.1</RuntimeFrameworkVersion>
+    <RuntimeFrameworkVersion>3.1</RuntimeFrameworkVersion>
     <UseWPF>true</UseWPF>
     <CodeAnalysisRuleSet>..\.sonarlint\wpfapp1_checkcsharp.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
   <ItemGroup>
-    <COMReference Include="BTalkUrlProtocolLib.dll">
-      <Guid>250bf03d-d250-4248-9a23-a2d41759568e</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Lcid>0</Lcid>
-      <Isolated>false</Isolated>
-    </COMReference>
   </ItemGroup>
 
   <ItemGroup>
