@@ -6,5 +6,6 @@ namespace WpfApp1
 {
     class CheckRepo
     {
+        // add comment
     }
 }
